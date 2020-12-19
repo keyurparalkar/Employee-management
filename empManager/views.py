@@ -1,8 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.http import Http404
+from django.http import HttpResponse,Http404, HttpResponseRedirect
+from django.urls import reverse
 
 from .models import EmpLogin, EmpDetails
+from .forms import EmpDetailsForm
 
 # Create your views here.
 def emp_mng_view(request):
@@ -19,7 +20,19 @@ def emp_mng_view(request):
     return render(request, 'empManager/index.html', data)
 
 def add_emp_view(request):
-    return HttpResponse("This is Add Employee Django view!!!!!")
+    if(request.method == "POST"):
+        form = EmpDetailsForm(request.POST)
+        if form.is_valid():
+            cleaned_data = form.cleaned_data
+            print(f"CLEANDED DATA  = {cleaned_data}")
+            return HttpResponseRedirect(reverse("thankyou_view"))
+    else:
+        form = EmpDetailsForm()
+
+    return render(request, "empManager/add_view.html", {'form': form})
+
+def thankyou_view(request):
+    return render(request, "empManager/thankyou.html")
 
 def display_emp_view(request, id):
     try:
