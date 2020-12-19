@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management</title>
+</head>
+
+<body>
+    <h1>
+        Manage Employee
+    </h1>
+    <table style="width:100%;">
+        <tr>
+            <th>View</th>
+            <th>#</th>
+            <th>Employee First Name</th>
+            <th>Employee Contact #</th>
+            <th>Employee Email ID</th>
+            <th>Employee Branch / Depot</th>
+        </tr>
+        {% if emp_details %}
+        {% for emp in emp_details %}
+        <tr>
+            <th>View</th>
+            <th>{{ emp.id }}</th>
+            <th>{{ emp.emp_fname }}</th>
+            <th>{{ emp.mob_no }}</th>
+            <th>{{ emp.emp_email }}</th>
+            <th>Employee Branch / Depot</th>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <p>No Employee Records found.</p>
+        {% endif %}
+    </table>
+</body>
+
+</html>
