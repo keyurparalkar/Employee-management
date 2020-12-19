@@ -23,7 +23,7 @@
         {% if emp_details %}
         {% for emp in emp_details %}
         <tr>
-            <th>View</th>
+            <th><a href="{% url 'display_view' emp.id %}">View</a></th>
             <th>{{ emp.id }}</th>
             <th>{{ emp.emp_fname }}</th>
             <th>{{ emp.mob_no }}</th>

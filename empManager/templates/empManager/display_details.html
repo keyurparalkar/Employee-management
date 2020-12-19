@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+</head>
+<body>
+    <h1>    
+        Exployee Details
+    </h1>
+    <p>
+        {% if emp_info %}
+            <span> Employee First Name: {{emp_info.emp_fname}}</span> 
+            <br/>
+
+            <span> Employee Middle Name: {{emp_info.emp_midname}}</span> 
+            <br/>
+
+            <span> Employee Last Name: {{emp_info.emp_lastname}}</span> 
+            <br/>
+
+            <span> Gender: {{emp_info.gender}}</span> 
+            <br/>
+            <span> Date of birth: {{emp_info.dob}}</span> 
+            <br/>
+            <span> Mobile Number: {{emp_info.mob_no}}</span> 
+            <br/>
+            <span> Alternate Mobile Number: {{emp_info.alt_mob_no}}</span> 
+            <br/>
+
+            <span> Email ID: {{emp_info.emp_email}}</span> 
+            <br/>
+            <span> Marital Status: {{emp_info.emp_marital_stat}}</span> 
+            <br/>
+
+            <span> Blood Group: {{emp_info.blood_grp}}</span> 
+            <br/>
+        {% endif %}
+    </p>
+</body>
+</html>
