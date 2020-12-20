@@ -25,11 +25,13 @@
             <th>{{ emp.emp_fname }}</th>
             <th>{{ emp.mob_no }}</th>
             <th>{{ emp.emp_email }}</th>
-            <th>Employee Branch / Depot</th>
+            <th>{{ emp.emp_branch }}</th>
         </tr>
         {% endfor %}
         {% else %}
-        <p>No Employee Records found.</p>
+        <div class="alert alert-danger">
+            <strong>No Employee Records Found</strong>
+        </div>
         {% endif %}
     </table>
 {% endblock %}

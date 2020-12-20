@@ -15,6 +15,7 @@ class EmpDetails(models.Model):
     emp_fname = models.CharField(max_length=256)
     emp_midname = models.CharField(max_length=256)
     emp_lastname = models.CharField(max_length=256)
+    emp_branch = models.CharField(max_length=256)
     gender = models.CharField(max_length=1)
     dob = models.DateField()
     mob_no = models.CharField(max_length=10)

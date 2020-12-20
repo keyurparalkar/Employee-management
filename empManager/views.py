@@ -49,10 +49,11 @@ def add_emp_view(request):
                     'emp_midname': cleaned_data['midname'],  
                     'emp_lastname': cleaned_data['lastname'],  
                     'gender': cleaned_data['gender'],  
-                    'dob': datetime.datetime.fromisoformat(cleaned_data['dob']),  
+                    'dob': cleaned_data['dob'],  
                     'mob_no': cleaned_data['mob_no'],  
                     'emp_marital_stat': cleaned_data['marital_stat'],  
-                    'blood_grp': cleaned_data['blood_grp']
+                    'blood_grp': cleaned_data['blood_grp'],
+                    'emp_branch': cleaned_data['emp_branch']
                     }     
                 #Store the email id of user
                 q1 = EmpLogin(emp_email=cleaned_data["email"])
