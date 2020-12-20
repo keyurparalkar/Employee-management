@@ -1,0 +1,15 @@
+{% extends 'empManager/base_template.html' %}
+{% block content %}
+   <br/>
+    {% if error_message %}
+        <div class="alert alert-danger">
+            <strong>{{error_message}}</strong>
+        </div>
+    {% endif %}
+
+    <form class="form-control"  action="{% url 'add_view' %}" method="POST">
+        {% csrf_token %}
+        {{ form }}
+    <input class="btn btn-success" type="submit" value="submit">
+    </form>
+{% endblock %}

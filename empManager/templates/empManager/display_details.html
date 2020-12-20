@@ -1,0 +1,51 @@
+{% extends 'empManager/base_template.html' %}
+{% block content %}
+    <h1>    
+        Exployee Details
+    </h1>
+    <p>
+    <table class="table">
+        <tr>           
+            <th>Employee First Name</th>
+            <th>Employee Middle Name</th>
+            <th>Employee Last Name</th>
+            <th>Gender</th>
+            <th>Date of birth</th>
+            <th>Mobile Number</th>
+            <th>Alternate Mobile Number</th>
+            <th>Marital Status</th>
+            <th>Blood Group</th>
+            <th>Employee Branch / Depot</th>
+        </tr>
+        
+        {% if emp_info %}
+        <tr>
+            <th>  {{emp_info.emp_fname}}</th> 
+            
+
+            <th>{{emp_info.emp_midname}}</th> 
+            
+
+            <th> {{emp_info.emp_lastname}}</th> 
+            
+
+            <th> {{emp_info.gender}}</th> 
+            
+            <th> {{emp_info.dob}}</th> 
+            
+            <th> {{emp_info.mob_no}}</th> 
+            
+            <th> {{emp_info.alt_mob_no}}</th> 
+            
+            <th> {{emp_info.emp_marital_stat}}</th> 
+            
+
+            <th> {{emp_info.blood_grp}}</th> 
+            <th> {{emp_info.emp_branch}}</th> 
+        </tr>
+        </table>
+        {% else %}
+            <th> Employee Details does not exists </th>
+        {% endif %}
+    </p>
+{% endblock %}
