@@ -4,34 +4,50 @@
         Exployee Details
     </h1>
     <p>
+    <table class="table">
+        <tr>           
+            <th>Employee First Name</th>
+            <th>Employee Middle Name</th>
+            <th>Employee Last Name</th>
+            <th>Gender</th>
+            <th>Date of birth</th>
+            <th>Mobile Number</th>
+            <th>Alternate Mobile Number</th>
+            <th>Marital Status</th>
+            <th>Blood Group</th>
+            <th>Employee Branch / Depot</th>
+        </tr>
+        
         {% if emp_info %}
-            <span> Employee First Name: {{emp_info.emp_fname}}</span> 
-            <br/>
+        <tr>
+            <th>  {{emp_info.emp_fname}}</th> 
+            
 
-            <span> Employee Middle Name: {{emp_info.emp_midname}}</span> 
-            <br/>
+            <th>{{emp_info.emp_midname}}</th> 
+            
 
-            <span> Employee Last Name: {{emp_info.emp_lastname}}</span> 
-            <br/>
+            <th> {{emp_info.emp_lastname}}</th> 
+            
 
-            <span> Gender: {{emp_info.gender}}</span> 
-            <br/>
-            <span> Date of birth: {{emp_info.dob}}</span> 
-            <br/>
-            <span> Mobile Number: {{emp_info.mob_no}}</span> 
-            <br/>
-            <span> Alternate Mobile Number: {{emp_info.alt_mob_no}}</span> 
-            <br/>
+            <th> {{emp_info.gender}}</th> 
+            
+            <th> {{emp_info.dob}}</th> 
+            
+            <th> {{emp_info.mob_no}}</th> 
+            
+            <th> {{emp_info.alt_mob_no}}</th> 
+            
 
-            <span> Email ID: {{emp_info.emp_email}}</span> 
-            <br/>
-            <span> Marital Status: {{emp_info.emp_marital_stat}}</span> 
-            <br/>
+            <th> {{emp_info.emp_email}}</th> 
+            
+            <th> {{emp_info.emp_marital_stat}}</th> 
+            
 
-            <span> Blood Group: {{emp_info.blood_grp}}</span> 
-            <br/>
+            <th> {{emp_info.blood_grp}}</th> 
+        </tr>
+        </table>
         {% else %}
-            <span> Employee Details does not exists </span>
+            <th> Employee Details does not exists </th>
         {% endif %}
     </p>
 {% endblock %}
