@@ -6,6 +6,7 @@ import datetime
 
 from .models import EmpLogin, EmpDetails
 from .forms import EmpDetailsForm
+from .formExceptions import formFieldException
 
 def emp_mng_view(request):
     """
@@ -39,7 +40,7 @@ def add_emp_view(request):
                 #checks to see if email id already exists:
                 all_emails = [em.emp_email for em in EmpLogin.objects.all()]
                 if(cleaned_data['email'] in all_emails):
-                    raise DatabaseError
+                    raise formFieldException(errors="Email ID Already Exisits")
 
                 #save employee details
                 temp_args = {  
@@ -61,10 +62,16 @@ def add_emp_view(request):
                 q2 = EmpDetails(**temp_args)
                 q2.save()
                 transaction.savepoint_commit(spid)
+            
+            except formFieldException as e:
+                transaction.savepoint_rollback(spid)
+                return render(request, "empManager/add_view.html", {'form': form, 'error_message':e.errors})
             except DatabaseError:
                 transaction.savepoint_rollback(spid)
+                return render(request, "empManager/add_view.html", {'form': form, 'error_message':'Database Error. Please refresh the page.'})
             except IntegrityError:
                 transaction.savepoint_rollback(spid)
+                return render(request, "empManager/add_view.html", {'form': form, 'error_message':'Internal Database Integrity Error. Please refresh the page.'})
 
 
 
