@@ -1,14 +1,5 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'empManager/css/bootstrap.min.css' %}">
-    <script src="{% static 'empManager/js/bootstrap.min.js' %}"></script>
-    <title>Add Employee Details</title>
-</head>
-<body>
+{% extends 'empManager/base_template.html' %}
+{% block content %}
     <h1>
         Add Employee Details
     </h1>
@@ -22,5 +13,4 @@
         {{ form }}
     <input type="submit" value="submit">
     </form>
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'empManager/css/bootstrap.min.css' %}">
+    <script src="{% static 'empManager/js/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'empManager/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'empManager/js/base_template.js' %}"></script>
+    <title>Employee Management</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link {{active0}}" aria-current="page" href="{%url 'manage_view'%}">Manage Employees</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{active1}}" href="{%url 'add_view'%}">Add Employees</a>
+            </li>
+        </ul>
+        {% block content %}
+        {% endblock %}
+</body>
+</div>
+
+</html>

@@ -15,7 +15,8 @@ def emp_mng_view(request):
     try:
         data = {
             'emp_emails':[i.emp_email for i in EmpLogin.objects.all()],
-            'emp_details':[i for i in EmpDetails.objects.all()]   
+            'emp_details':[i for i in EmpDetails.objects.all()],
+            'active0':'active'
         }
     except EmpLogin.DoesNotExist:
         raise Http404("Employee Login does not exists")
@@ -65,13 +66,13 @@ def add_emp_view(request):
             
             except formFieldException as e:
                 transaction.savepoint_rollback(spid)
-                return render(request, "empManager/add_view.html", {'form': form, 'error_message':e.errors})
+                return render(request, "empManager/add_view.html", {'form': form, 'error_message':e.errors,'active1':'active'})
             except DatabaseError:
                 transaction.savepoint_rollback(spid)
-                return render(request, "empManager/add_view.html", {'form': form, 'error_message':'Database Error. Please refresh the page.'})
+                return render(request, "empManager/add_view.html", {'form': form, 'error_message':'Database Error. Please refresh the page.','active1':'active'})
             except IntegrityError:
                 transaction.savepoint_rollback(spid)
-                return render(request, "empManager/add_view.html", {'form': form, 'error_message':'Internal Database Integrity Error. Please refresh the page.'})
+                return render(request, "empManager/add_view.html", {'form': form, 'error_message':'Internal Database Integrity Error. Please refresh the page.','active1':'active'})
 
 
 
@@ -79,7 +80,7 @@ def add_emp_view(request):
     else:
         form = EmpDetailsForm()
 
-    return render(request, "empManager/add_view.html", {'form': form})
+    return render(request, "empManager/add_view.html", {'form': form,'active1':'active'})
 
 def display_emp_view(request, id):
     """

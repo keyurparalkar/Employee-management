@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Details</title>
-</head>
-<body>
+{% extends 'empManager/base_template.html' %}
+{% block content %}
     <h1>    
         Exployee Details
     </h1>
@@ -40,5 +34,4 @@
             <span> Employee Details does not exists </span>
         {% endif %}
     </p>
-</body>
-</html>
+{% endblock %}

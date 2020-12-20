@@ -1,22 +1,9 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'empManager/css/bootstrap.min.css' %}">
-    <script src="{% static 'empManager/js/bootstrap.min.js' %}"></script>
-    <title>Employee Management</title>
-</head>
-
-<body>
-<div class="container-fluid">
-
+{% extends 'empManager/base_template.html' %}
+{% block content %}
     <h1>
         Manage Employee
     </h1>
-    <table style="width:100%;">
+    <table>
         <tr>
             <th>View</th>
             <th>#</th>
@@ -40,10 +27,4 @@
         <p>No Employee Records found.</p>
         {% endif %}
     </table>
-
-    <a href="{%url 'add_view'%}">
-        Add Employee
-    </a>
-</body>
-</div>
-</html>
+{% endblock %}
