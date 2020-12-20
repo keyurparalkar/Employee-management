@@ -50,7 +50,8 @@ def add_emp_view(request):
                     'emp_lastname': cleaned_data['lastname'],  
                     'gender': cleaned_data['gender'],  
                     'dob': cleaned_data['dob'],  
-                    'mob_no': cleaned_data['mob_no'],  
+                    'mob_no': cleaned_data['mob_no'],
+                    'alt_mob_no': cleaned_data['alt_mob_no'],  
                     'emp_marital_stat': cleaned_data['marital_stat'],  
                     'blood_grp': cleaned_data['blood_grp'],
                     'emp_branch': cleaned_data['emp_branch']
